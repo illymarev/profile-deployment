@@ -24,7 +24,7 @@
                            href="{% url 'profile:login' %}">Login</a>
                     </li>
                 {% endif %}
-
+                {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a style="padding:5px; margin-right:25px;" class="nav-link active display-6 px-2"
                        href="{% url 'profile:showprofile' pk=request.user.profile.id %}">My profile</a>
@@ -37,6 +37,7 @@
                     <a style="padding:5px; margin-left:650px;" class="nav-link active display-6 px-2"
                        href="{% url 'profile:logout' %}">Logout</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </div>
