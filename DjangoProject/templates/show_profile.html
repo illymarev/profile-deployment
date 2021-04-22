@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load my_custom_tags %}
+{% block body_block %}
+{% if object %}
+    <h3 class="display-3">Welcome back, {{ object.user }}</h3>
+    <p class="font-monospace">{{ object.first_name }}</p>
+    <p class="font-monospace">{{ object.last_name }}</p>
+    <p class="font-monospace">{{ object.date_of_birth }}</p>
+    <p class="font-monospace">{{ object.biography }}</p>
+    <p class="font-monospace">{{ object.contacts }}</p>
+    <p>
+    Test tag with user instance: {% edit_list request.user %}</p>
+    <p>Test tag with Profile instance: {% edit_list object %}</p>
+    <p>Test tag with incorrect instnace: {% edit_list asdkaskd %}</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <script type="text/javascript" src="/jsi18n/"></script>
+    <script type="text/javascript" src="{% static 'admin/js/core.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/admin/RelatedObjectLookups.js' %}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/forms.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/base.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets.css' %}"/>
+{% endblock %}
+{% block body_block %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-outline-dark">Update</button>
+    </form>
+{% endblock %}
